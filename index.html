@@ -1,0 +1,341 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#0b0d12">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="AURA AI">
+
+  <title>AURA AI</title>
+  <link rel="manifest" href="manifest.json">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: #0b0d12;
+      color: #ffffff;
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      padding-bottom: 100px;
+    }
+
+    header {
+      padding: 25px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 25px;
+      font-weight: 800;
+      letter-spacing: 2px;
+    }
+
+    .logo span {
+      color: #a78bfa;
+    }
+
+    .profile {
+      background: #20232c;
+      border-radius: 50%;
+      padding: 12px;
+    }
+
+    main {
+      padding: 10px 20px;
+    }
+
+    .welcome {
+      color: #999eaa;
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+
+    h1 {
+      font-size: 27px;
+      margin-bottom: 22px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #29213f, #171a29);
+      border: 1px solid #39304f;
+      border-radius: 22px;
+      padding: 24px;
+      margin-bottom: 25px;
+    }
+
+    .hero small {
+      color: #c4b5fd;
+      font-weight: 600;
+    }
+
+    .hero h2 {
+      font-size: 25px;
+      margin: 12px 0;
+    }
+
+    .hero p {
+      color: #b5b5c3;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    button {
+      border: none;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .primary {
+      background: #8b5cf6;
+      color: white;
+      border-radius: 12px;
+      padding: 14px 20px;
+      margin-top: 20px;
+      font-weight: 700;
+    }
+
+    .section-title {
+      font-size: 18px;
+      margin: 28px 0 15px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .stat, .module {
+      background: #171a22;
+      border: 1px solid #292d38;
+      border-radius: 16px;
+      padding: 18px;
+    }
+
+    .stat small {
+      color: #969ba8;
+    }
+
+    .stat h3 {
+      font-size: 22px;
+      margin-top: 8px;
+    }
+
+    .modules {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .module {
+      text-align: left;
+      color: white;
+      min-height: 115px;
+    }
+
+    .module .emoji {
+      font-size: 25px;
+      margin-bottom: 12px;
+    }
+
+    .module strong {
+      display: block;
+      font-size: 14px;
+    }
+
+    .module small {
+      color: #999eaa;
+      display: block;
+      margin-top: 6px;
+    }
+
+    .workflow {
+      background: #171a22;
+      border: 1px solid #292d38;
+      border-radius: 16px;
+      padding: 18px;
+    }
+
+    .step {
+      padding: 12px 0;
+      border-bottom: 1px solid #292d38;
+      color: #c6c8d0;
+      font-size: 14px;
+    }
+
+    .step:last-child {
+      border: none;
+    }
+
+    nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 12px 15px calc(12px + env(safe-area-inset-bottom));
+      background: rgba(18, 20, 28, .96);
+      border-top: 1px solid #292d38;
+      display: flex;
+      justify-content: space-around;
+    }
+
+    nav button {
+      color: #9297a5;
+      background: transparent;
+      padding: 8px;
+      font-size: 12px;
+    }
+
+    nav button.active {
+      color: #a78bfa;
+    }
+
+    nav span {
+      display: block;
+      font-size: 20px;
+      margin-bottom: 5px;
+    }
+
+    .notice {
+      color: #858b99;
+      font-size: 12px;
+      text-align: center;
+      margin-top: 25px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">AURA<span> AI</span></div>
+  <div class="profile">👤</div>
+</header>
+
+<main>
+  <p class="welcome">WELCOME BACK</p>
+  <h1>Create something amazing.</h1>
+
+  <section class="hero">
+    <small>YOUR AI AFFILIATE ASSISTANT</small>
+    <h2>Create. Generate. Earn.</h2>
+    <p>
+      Your intelligent workspace for creating
+      affiliate images and videos.
+    </p>
+    <button class="primary" onclick="openTab('Studio')">
+      ✨ Open AI Studio
+    </button>
+  </section>
+
+  <h2 class="section-title">Your Workspace</h2>
+
+  <div class="stats">
+    <div class="stat">
+      <small>Products</small>
+      <h3>0</h3>
+    </div>
+    <div class="stat">
+      <small>Images Created</small>
+      <h3>0</h3>
+    </div>
+    <div class="stat">
+      <small>Videos Created</small>
+      <h3>0</h3>
+    </div>
+    <div class="stat">
+      <small>Projects</small>
+      <h3>0</h3>
+    </div>
+  </div>
+
+  <h2 class="section-title">AI Modules</h2>
+
+  <div class="modules">
+    <button class="module" onclick="openTab('Studio')">
+      <div class="emoji">🎨</div>
+      <strong>Image Studio</strong>
+      <small>AI Image Creation</small>
+    </button>
+
+    <button class="module" onclick="openTab('Studio')">
+      <div class="emoji">🎬</div>
+      <strong>Video Studio</strong>
+      <small>AI Video Creation</small>
+    </button>
+
+    <button class="module" onclick="openTab('Library')">
+      <div class="emoji">🛍️</div>
+      <strong>Products</strong>
+      <small>Affiliate Products</small>
+    </button>
+
+    <button class="module" onclick="openTab('Library')">
+      <div class="emoji">📁</div>
+      <strong>Library</strong>
+      <small>Your Projects</small>
+    </button>
+  </div>
+
+  <h2 class="section-title">Production Workflow</h2>
+
+  <div class="workflow">
+    <div class="step">① Select Affiliate Product</div>
+    <div class="step">② Generate Product Images</div>
+    <div class="step">③ Approve Generated Images</div>
+    <div class="step">④ Generate Videos with Flow</div>
+    <div class="step">⑤ Save Completed Videos</div>
+  </div>
+
+  <p class="notice">
+    AURA AI · Prototype Version
+  </p>
+</main>
+
+<nav>
+  <button class="active" onclick="openTab('Home', this)">
+    <span>⌂</span>Home
+  </button>
+  <button onclick="openTab('Studio', this)">
+    <span>✦</span>Studio
+  </button>
+  <button onclick="openTab('Library', this)">
+    <span>▣</span>Library
+  </button>
+  <button onclick="openTab('Settings', this)">
+    <span>⚙</span>Settings
+  </button>
+</nav>
+
+<script>
+  function openTab(tab, button) {
+    if (button) {
+      document.querySelectorAll('nav button').forEach(b => {
+        b.classList.remove('active');
+      });
+      button.classList.add('active');
+    }
+
+    if (tab !== 'Home') {
+      alert(tab + ' module will be developed next.');
+    }
+  }
+
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./sw.js');
+    });
+  }
+</script>
+
+</body>
+</html>
