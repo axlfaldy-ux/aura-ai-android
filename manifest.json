@@ -1,0 +1,10 @@
+{
+  "name": "AURA AI",
+  "short_name": "AURA AI",
+  "description": "AI Affiliate Content Assistant",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#0b0d12",
+  "theme_color": "#0b0d12",
+  "orientation": "portrait"
+}
