@@ -304,6 +304,46 @@ function getAuraWorkflow() {
   );
 }
 
+function renderAutomationStatus() {
+  const panel = document.getElementById("automationStatus");
+  if (!panel) return;
+
+  const workflow = getAuraWorkflow();
+
+  if (!workflow || !workflow.products.length) {
+    panel.textContent = "Belum ada workflow.";
+    return;
+  }
+
+  const labels = {
+    queued: "Menunggu antrean",
+    researching: "Riset produk",
+    image_generation: "Membuat gambar",
+    awaiting_image_approval: "Menunggu persetujuan gambar",
+    video_generation: "Membuat video",
+    saving: "Menyimpan video",
+    completed: "Selesai",
+    failed: "Gagal"
+  };
+
+  panel.innerHTML = "";
+
+  workflow.products.forEach((product, index) => {
+    const item = document.createElement("div");
+    item.className = "item";
+
+    const name = document.createElement("strong");
+    name.textContent = (index + 1) + ". " + product.name;
+
+    const status = document.createElement("p");
+    status.className = "muted";
+    status.textContent = labels[product.status] || product.status;
+
+    item.append(name, status);
+    panel.append(item);
+  });
+}
+
 </script>
 
 </body>
