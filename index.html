@@ -2,340 +2,317 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="theme-color" content="#0b0d12">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="AURA AI">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b0d12">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="AURA AI">
+<title>AURA AI</title>
+<link rel="manifest" href="./manifest.json">
 
-  <title>AURA AI</title>
-  <link rel="manifest" href="manifest.json">
-
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      background: #0b0d12;
-      color: #ffffff;
-      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-      padding-bottom: 100px;
-    }
-
-    header {
-      padding: 25px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      font-size: 25px;
-      font-weight: 800;
-      letter-spacing: 2px;
-    }
-
-    .logo span {
-      color: #a78bfa;
-    }
-
-    .profile {
-      background: #20232c;
-      border-radius: 50%;
-      padding: 12px;
-    }
-
-    main {
-      padding: 10px 20px;
-    }
-
-    .welcome {
-      color: #999eaa;
-      font-size: 14px;
-      margin-bottom: 8px;
-    }
-
-    h1 {
-      font-size: 27px;
-      margin-bottom: 22px;
-    }
-
-    .hero {
-      background: linear-gradient(135deg, #29213f, #171a29);
-      border: 1px solid #39304f;
-      border-radius: 22px;
-      padding: 24px;
-      margin-bottom: 25px;
-    }
-
-    .hero small {
-      color: #c4b5fd;
-      font-weight: 600;
-    }
-
-    .hero h2 {
-      font-size: 25px;
-      margin: 12px 0;
-    }
-
-    .hero p {
-      color: #b5b5c3;
-      font-size: 14px;
-      line-height: 1.6;
-    }
-
-    button {
-      border: none;
-      cursor: pointer;
-      font-size: 14px;
-    }
-
-    .primary {
-      background: #8b5cf6;
-      color: white;
-      border-radius: 12px;
-      padding: 14px 20px;
-      margin-top: 20px;
-      font-weight: 700;
-    }
-
-    .section-title {
-      font-size: 18px;
-      margin: 28px 0 15px;
-    }
-
-    .stats {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-    }
-
-    .stat, .module {
-      background: #171a22;
-      border: 1px solid #292d38;
-      border-radius: 16px;
-      padding: 18px;
-    }
-
-    .stat small {
-      color: #969ba8;
-    }
-
-    .stat h3 {
-      font-size: 22px;
-      margin-top: 8px;
-    }
-
-    .modules {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-    }
-
-    .module {
-      text-align: left;
-      color: white;
-      min-height: 115px;
-    }
-
-    .module .emoji {
-      font-size: 25px;
-      margin-bottom: 12px;
-    }
-
-    .module strong {
-      display: block;
-      font-size: 14px;
-    }
-
-    .module small {
-      color: #999eaa;
-      display: block;
-      margin-top: 6px;
-    }
-
-    .workflow {
-      background: #171a22;
-      border: 1px solid #292d38;
-      border-radius: 16px;
-      padding: 18px;
-    }
-
-    .step {
-      padding: 12px 0;
-      border-bottom: 1px solid #292d38;
-      color: #c6c8d0;
-      font-size: 14px;
-    }
-
-    .step:last-child {
-      border: none;
-    }
-
-    nav {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      padding: 12px 15px calc(12px + env(safe-area-inset-bottom));
-      background: rgba(18, 20, 28, .96);
-      border-top: 1px solid #292d38;
-      display: flex;
-      justify-content: space-around;
-    }
-
-    nav button {
-      color: #9297a5;
-      background: transparent;
-      padding: 8px;
-      font-size: 12px;
-    }
-
-    nav button.active {
-      color: #a78bfa;
-    }
-
-    nav span {
-      display: block;
-      font-size: 20px;
-      margin-bottom: 5px;
-    }
-
-    .notice {
-      color: #858b99;
-      font-size: 12px;
-      text-align: center;
-      margin-top: 25px;
-    }
-  </style>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0b0d12;color:#fff;font-family:-apple-system,BlinkMacSystemFont,sans-serif;padding-bottom:105px}
+header{height:75px;padding:18px 20px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:24px;font-weight:850;letter-spacing:2px}
+.logo span{color:#a78bfa}
+.avatar{background:#20232c;border-radius:50%;padding:11px}
+main{padding:12px 20px}
+.welcome{color:#999eaa;font-size:13px;margin-bottom:8px}
+h1{font-size:27px;margin-bottom:22px}
+h2{font-size:19px;margin:28px 0 15px}
+.hero{background:linear-gradient(135deg,#29213f,#171a29);border:1px solid #39304f;border-radius:22px;padding:24px;margin-bottom:25px}
+.hero small{color:#c4b5fd;font-weight:700}
+.hero h2{font-size:27px;margin:13px 0}
+.hero p{color:#b5b5c3;line-height:1.6;font-size:14px}
+button{font-family:inherit;cursor:pointer}
+.primary{background:#8b5cf6;color:white;border:0;border-radius:13px;padding:15px 20px;font-size:15px;font-weight:700;margin-top:18px}
+.secondary{background:#252936;color:#fff;border:1px solid #393e4b;border-radius:12px;padding:13px}
+.stats,.modules{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.stat,.module,.panel{background:#171a22;border:1px solid #292d38;border-radius:17px;padding:18px}
+.stat small,.module small{color:#999eaa}
+.stat h3{font-size:24px;margin-top:8px}
+.module{color:#fff;text-align:left;min-height:120px}
+.module .emoji{font-size:26px;margin-bottom:13px}
+.module strong{display:block;margin-bottom:7px}
+.module small{font-size:12px}
+.workflow{background:#171a22;border:1px solid #292d38;border-radius:17px;padding:18px}
+.step{padding:13px 0;border-bottom:1px solid #292d38;color:#c6c8d0;font-size:14px}
+.step:last-child{border:0}
+nav{position:fixed;z-index:10;bottom:0;left:0;right:0;padding:12px 8px calc(12px + env(safe-area-inset-bottom));background:rgba(15,17,24,.97);border-top:1px solid #292d38;display:flex;justify-content:space-around}
+nav button{background:transparent;color:#9297a5;border:0;font-size:12px;min-width:65px}
+nav button.active{color:#a78bfa}
+nav span{display:block;font-size:22px;margin-bottom:5px}
+.page{display:none}
+.page.active{display:block}
+.field{margin:17px 0}
+.field label{display:block;color:#c9cbd4;font-size:14px;margin-bottom:9px;font-weight:600}
+.field input,.field textarea{width:100%;background:#10131b;border:1px solid #343947;border-radius:12px;padding:14px;color:#fff;font-size:14px;outline:none}
+.field textarea{min-height:120px;resize:vertical;line-height:1.5}
+.upload{border:1px dashed #55516d;background:#141620;border-radius:14px;padding:20px;text-align:center;color:#bcb5d4}
+.upload input{display:none}
+.upload strong{display:block;margin-bottom:7px;color:#c4b5fd}
+.preview{width:100%;max-height:260px;object-fit:contain;border-radius:12px;margin-top:12px;display:none;background:#0b0d12}
+.full{width:100%}
+.note{color:#9297a5;font-size:12px;line-height:1.6;margin-top:12px}
+.item{background:#171a22;border:1px solid #292d38;padding:15px;border-radius:14px;margin:12px 0}
+.item img{width:100%;max-height:180px;object-fit:contain;border-radius:10px;margin-top:10px}
+.danger{color:#ff8585;background:#351d25;border:0;border-radius:10px;padding:10px}
+.setting{padding:17px 0;border-bottom:1px solid #292d38;color:#d5d6dd}
+.empty{text-align:center;padding:35px 10px;color:#9297a5}
+</style>
 </head>
 
 <body>
-
 <header>
   <div class="logo">AURA<span> AI</span></div>
-  <div class="profile">👤</div>
+  <div class="avatar">👤</div>
 </header>
 
 <main>
+<section id="home" class="page active">
   <p class="welcome">WELCOME BACK</p>
   <h1>Create something amazing.</h1>
-
-  <section class="hero">
+  <div class="hero">
     <small>YOUR AI AFFILIATE ASSISTANT</small>
     <h2>Create. Generate. Earn.</h2>
-    <p>
-      Your intelligent workspace for creating
-      affiliate images and videos.
-    </p>
-    <button class="primary" onclick="openTab('Studio')">
-      ✨ Open AI Studio
-    </button>
-  </section>
+    <p>Your intelligent workspace for creating affiliate images and videos.</p>
+    <button class="primary" onclick="showPage('studio')">✨ Open AI Studio</button>
+  </div>
 
-  <h2 class="section-title">Your Workspace</h2>
-
+  <h2>Your Workspace</h2>
   <div class="stats">
-    <div class="stat">
-      <small>Products</small>
-      <h3>0</h3>
-    </div>
-    <div class="stat">
-      <small>Images Created</small>
-      <h3>0</h3>
-    </div>
-    <div class="stat">
-      <small>Videos Created</small>
-      <h3>0</h3>
-    </div>
-    <div class="stat">
-      <small>Projects</small>
-      <h3>0</h3>
-    </div>
+    <div class="stat"><small>Products</small><h3 id="countProducts">0</h3></div>
+    <div class="stat"><small>Images Created</small><h3>0</h3></div>
+    <div class="stat"><small>Videos Created</small><h3>0</h3></div>
+    <div class="stat"><small>Projects</small><h3 id="countProjects">0</h3></div>
   </div>
 
-  <h2 class="section-title">AI Modules</h2>
-
+  <h2>AI Modules</h2>
   <div class="modules">
-    <button class="module" onclick="openTab('Studio')">
-      <div class="emoji">🎨</div>
-      <strong>Image Studio</strong>
-      <small>AI Image Creation</small>
-    </button>
-
-    <button class="module" onclick="openTab('Studio')">
-      <div class="emoji">🎬</div>
-      <strong>Video Studio</strong>
-      <small>AI Video Creation</small>
-    </button>
-
-    <button class="module" onclick="openTab('Library')">
-      <div class="emoji">🛍️</div>
-      <strong>Products</strong>
-      <small>Affiliate Products</small>
-    </button>
-
-    <button class="module" onclick="openTab('Library')">
-      <div class="emoji">📁</div>
-      <strong>Library</strong>
-      <small>Your Projects</small>
-    </button>
+    <button class="module" onclick="showPage('studio')"><div class="emoji">🎨</div><strong>Image Studio</strong><small>Image Workspace</small></button>
+    <button class="module" onclick="showPage('studio')"><div class="emoji">🎬</div><strong>Video Studio</strong><small>Video Workspace</small></button>
+    <button class="module" onclick="showPage('studio')"><div class="emoji">🛍️</div><strong>Products</strong><small>Affiliate Products</small></button>
+    <button class="module" onclick="showPage('library')"><div class="emoji">📁</div><strong>Library</strong><small>Your Projects</small></button>
   </div>
 
-  <h2 class="section-title">Production Workflow</h2>
-
+  <h2>Production Workflow</h2>
   <div class="workflow">
     <div class="step">① Select Affiliate Product</div>
-    <div class="step">② Generate Product Images</div>
+    <div class="step">② Prepare Product Images</div>
     <div class="step">③ Approve Generated Images</div>
     <div class="step">④ Generate Videos with Flow</div>
     <div class="step">⑤ Save Completed Videos</div>
   </div>
+  <p class="note" style="text-align:center">AURA AI · iPhone PWA</p>
+</section>
 
-  <p class="notice">
-    AURA AI · Prototype Version
-  </p>
+<section id="studio" class="page">
+  <p class="welcome">AURA AI WORKSPACE</p>
+  <h1>Image Studio</h1>
+  <p class="note">Siapkan foto produk, gambar referensi karakter, dan prompt untuk proses pembuatan konten.</p>
+
+  <div class="panel" style="margin-top:20px">
+    <div class="field">
+      <label>Nama Produk</label>
+      <input id="productName" placeholder="Contoh: Tas wanita premium">
+    </div>
+
+    <div class="field">
+      <label>Upload Foto Produk</label>
+      <label class="upload" for="productFile">
+        <strong>＋ Pilih Foto Produk</strong>
+        Ketuk untuk memilih gambar
+      </label>
+      <input id="productFile" type="file" accept="image/*">
+      <img id="productPreview" class="preview">
+    </div>
+
+    <div class="field">
+      <label>Upload Gambar Referensi Karakter</label>
+      <label class="upload" for="referenceFile">
+        <strong>＋ Pilih Gambar Referensi</strong>
+        Ketuk untuk memilih gambar
+      </label>
+      <input id="referenceFile" type="file" accept="image/*">
+      <img id="referencePreview" class="preview">
+    </div>
+
+    <div class="field">
+      <label>Image Generation Prompt</label>
+      <textarea id="prompt" placeholder="Tuliskan prompt gambar yang ingin dibuat..."></textarea>
+    </div>
+
+    <button class="primary full" onclick="saveProject()">💾 Simpan Draft Proyek</button>
+    <p class="note">Saat ini tombol menyimpan draft dan gambar pilihan ke Library. AI image generation belum dihubungkan.</p>
+  </div>
+
+  <h2>Next Step</h2>
+  <div class="workflow">
+    <div class="step">① Product Preparation</div>
+    <div class="step">② Character Reference</div>
+    <div class="step">③ Prompt Preparation</div>
+    <div class="step">④ AI Image Generation — Coming Soon</div>
+  </div>
+</section>
+
+<section id="library" class="page">
+  <p class="welcome">YOUR WORKSPACE</p>
+  <h1>My Library</h1>
+  <p class="note">Semua draft proyek yang kamu simpan akan muncul di sini.</p>
+  <div id="projectList"></div>
+</section>
+
+<section id="settings" class="page">
+  <p class="welcome">PREFERENCES</p>
+  <h1>Settings</h1>
+  <div class="panel">
+    <div class="setting"><strong>AURA AI</strong><p class="note">Version 1.0 · iPhone PWA</p></div>
+    <div class="setting">Appearance <p class="note">Premium Dark Mode</p></div>
+    <div class="setting">Storage <p class="note">Draft disimpan pada perangkat ini.</p></div>
+    <div class="setting">AI Integration <p class="note">Belum terhubung.</p></div>
+  </div>
+</section>
 </main>
 
 <nav>
-  <button class="active" onclick="openTab('Home', this)">
-    <span>⌂</span>Home
-  </button>
-  <button onclick="openTab('Studio', this)">
-    <span>✦</span>Studio
-  </button>
-  <button onclick="openTab('Library', this)">
-    <span>▣</span>Library
-  </button>
-  <button onclick="openTab('Settings', this)">
-    <span>⚙</span>Settings
-  </button>
+  <button class="active" data-page="home" onclick="showPage('home',this)"><span>⌂</span>Home</button>
+  <button data-page="studio" onclick="showPage('studio',this)"><span>✦</span>Studio</button>
+  <button data-page="library" onclick="showPage('library',this)"><span>▣</span>Library</button>
+  <button data-page="settings" onclick="showPage('settings',this)"><span>⚙</span>Settings</button>
 </nav>
 
 <script>
-  function openTab(tab, button) {
-    if (button) {
-      document.querySelectorAll('nav button').forEach(b => {
-        b.classList.remove('active');
-      });
-      button.classList.add('active');
-    }
+let productImage = "";
+let referenceImage = "";
 
-    if (tab !== 'Home') {
-      alert(tab + ' module will be developed next.');
-    }
+function showPage(page, button) {
+  document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
+  document.getElementById(page).classList.add("active");
+
+  document.querySelectorAll("nav button").forEach(b => b.classList.remove("active"));
+  const navButton = document.querySelector('nav button[data-page="' + page + '"]');
+  if (navButton) navButton.classList.add("active");
+
+  if (page === "library") renderLibrary();
+  window.scrollTo(0,0);
+}
+
+function readImage(input, preview, type) {
+  const file = input.files[0];
+  if (!file) return;
+
+  if (!file.type.startsWith("image/")) {
+    alert("Silakan pilih file gambar.");
+    return;
   }
 
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('./sw.js');
-    });
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    if (type === "product") productImage = e.target.result;
+    if (type === "reference") referenceImage = e.target.result;
+    preview.src = e.target.result;
+    preview.style.display = "block";
+  };
+  reader.readAsDataURL(file);
+}
+
+document.getElementById("productFile").addEventListener("change", function() {
+  readImage(this, document.getElementById("productPreview"), "product");
+});
+
+document.getElementById("referenceFile").addEventListener("change", function() {
+  readImage(this, document.getElementById("referencePreview"), "reference");
+});
+
+function getProjects() {
+  try {
+    return JSON.parse(localStorage.getItem("auraProjects") || "[]");
+  } catch(e) {
+    return [];
   }
+}
+
+function saveProject() {
+  const name = document.getElementById("productName").value.trim();
+  const prompt = document.getElementById("prompt").value.trim();
+
+  if (!name) {
+    alert("Masukkan nama produk terlebih dahulu.");
+    return;
+  }
+
+  const projects = getProjects();
+  projects.unshift({
+    id: Date.now(),
+    name: name,
+    prompt: prompt,
+    productImage: productImage,
+    referenceImage: referenceImage,
+    date: new Date().toLocaleDateString("id-ID")
+  });
+
+  try {
+    localStorage.setItem("auraProjects", JSON.stringify(projects));
+  } catch(e) {
+    alert("Penyimpanan penuh. Coba gunakan gambar berukuran lebih kecil.");
+    return;
+  }
+
+  updateStats();
+  alert("Draft proyek berhasil disimpan ke Library.");
+  showPage("library");
+}
+
+function renderLibrary() {
+  const list = document.getElementById("projectList");
+  const projects = getProjects();
+
+  if (!projects.length) {
+    list.innerHTML = '<div class="empty">📁<p>Belum ada proyek.</p><p class="note">Simpan draft pertama dari Studio.</p></div>';
+    return;
+  }
+
+  list.innerHTML = projects.map(p => `
+    <div class="item">
+      <strong>${escapeHTML(p.name)}</strong>
+      <p class="note">${escapeHTML(p.date)}</p>
+      ${p.productImage ? `<img src="${p.productImage}" alt="Foto produk">` : ""}
+      ${p.referenceImage ? `<img src="${p.referenceImage}" alt="Referensi karakter">` : ""}
+      <p class="note">${escapeHTML(p.prompt || "Tidak ada prompt.")}</p>
+      <button class="danger" onclick="deleteProject(${p.id})">Hapus Draft</button>
+    </div>
+  `).join("");
+}
+
+function escapeHTML(value) {
+  return String(value).replace(/[&<>"']/g, c => ({
+    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+  })[c]);
+}
+
+function deleteProject(id) {
+  if (!confirm("Hapus draft ini?")) return;
+  const projects = getProjects().filter(p => p.id !== id);
+  localStorage.setItem("auraProjects", JSON.stringify(projects));
+  renderLibrary();
+  updateStats();
+}
+
+function updateStats() {
+  const total = getProjects().length;
+  document.getElementById("countProjects").textContent = total;
+  document.getElementById("countProducts").textContent = total;
+}
+
+updateStats();
+
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./sw.js").catch(console.error);
+  });
+}
 </script>
-
 </body>
 </html>
