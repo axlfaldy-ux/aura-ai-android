@@ -261,6 +261,42 @@ function updateStats(){
 }
 
 updateStats();
+// AURA AI WORKFLOW CONNECTION
+
+let auraWorkflow = null;
+
+async function startAuraWorkflow() {
+  const engine = await import("./backend/workflow.js");
+
+  const projects = getProjects();
+
+  if (projects.length === 0) {
+    alert("Belum ada produk di Project Library.");
+    return;
+  }
+
+  auraWorkflow = engine.createWorkflow(
+    projects.map((p) => ({
+      id: p.id,
+      name: p.name,
+      sourceUrl: p.link
+    }))
+  );
+
+  localStorage.setItem(
+    "auraWorkflow",
+    JSON.stringify(auraWorkflow)
+  );
+
+  alert("Workflow AURA AI berhasil dibuat!");
+}
+
+function getAuraWorkflow() {
+  return JSON.parse(
+    localStorage.getItem("auraWorkflow") || "null"
+  );
+}
+
 </script>
 
 </body>
