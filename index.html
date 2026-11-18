@@ -219,7 +219,11 @@ function saveProject(){
 
   try{
     localStorage.setItem('auraProjects',JSON.stringify(projects));
-  }catch(e){fetch("https://aura-ai-android.axlfaldy.workers.dev/products", {
+  }catch(e){
+    alert('Penyimpanan browser penuh. Hapus sebagian draft terlebih dahulu.');
+    return;
+  }
+fetch("https://aura-ai-android.axlfaldy.workers.dev/products", {
   method: "POST",
   headers: {
     "Content-Type": "application/json"
@@ -232,10 +236,6 @@ function saveProject(){
 .then(response => response.json())
 .then(result => console.log("AURA AI:", result))
 .catch(error => console.error("Cloudflare:", error));
-    alert('Penyimpanan browser penuh. Hapus sebagian draft terlebih dahulu.');
-    return;
-  }
-
   updateStats();
   alert('Draft proyek berhasil disimpan!');
   showPage('library');
