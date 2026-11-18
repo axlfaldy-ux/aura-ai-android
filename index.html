@@ -257,27 +257,6 @@ function deleteProject(id){
   if(!confirm('Hapus draft ini?'))return;
   const projects=getProjects().filter(p=>p.id!==id);
   localStorage.setItem('auraProjects',JSON.stringify(projects));
-  fetch("https://aura-ai-android.axlfaldy.workers.dev/products", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json"
-  },
-  body: JSON.stringify({
-    name: project.name,
-    sourceUrl: project.link
-  })
-})
-.then(response => response.json())
-.then(result => {
-  if (result.success) {
-    console.log("Produk berhasil dikirim ke Cloudflare");
-  } else {
-    console.error(result.error);
-  }
-})
-.catch(error => {
-  console.error("Gagal mengirim produk:", error);
-});
   renderProjects();
   updateStats();
 }
